@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
+       <!-- 멤버변수(필드==속성) 등록 -->   
+      <bean id='t1' class='kr.co.soft.beans.TestBean' > 
+     	<property name="data1" value="100"/>
+     	<property name="data2" value="11.11"/>
+     	<property name="data3" value="true"/>
+     	<property name="data4" value="안녕하세요"/>
+     	
+     	<!-- 객체속성 등록:이미 만들어져 있는 객체 참조 -->
+     	<property name="data5" ref='data_bean'/>
+     	<property name="data6">
+     	 <bean class='kr.co.soft.beans.DataBean'/>
+     	</property>
+      </bean>
+     
+     <bean id='data_bean' class='kr.co.soft.beans.DataBean'/>
+     
+     
+    <!--  활용 -->
+      	<bean id="tv" class="kr.co.soft.beans.SamSungTV" scope="prototype">
+			<property name="speaker" ref="sony"/>
+			<property name="price" value="500000"/>
+		</bean>
+		<bean id="sony" class="kr.co.soft.beans.SonySpeaker"/>
+                         
+</beans>
+
+
+

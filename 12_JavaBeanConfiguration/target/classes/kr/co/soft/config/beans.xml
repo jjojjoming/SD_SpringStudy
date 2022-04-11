@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
+         <bean class="kr.co.soft.beans.TestBean1"/>
+         <bean id="xml1" class="kr.co.soft.beans.TestBean1"/>
+         <!-- getBean을 통해서만 주소값 반환 -->
+         <bean id="xml2" class="kr.co.soft.beans.TestBean2" lazy-init="true"/>
+         
+         <bean id="xml3" class="kr.co.soft.beans.TestBean3" scope="prototype"/>
+         
+         <bean class="kr.co.soft.beans.TestBean4" />
+        <!--  id없이 같은 클래스 사용시 primary="true"이 필요 -->
+         <bean class="kr.co.soft.beans.TestBean4" primary="true"/>
+</beans>
+
+
+

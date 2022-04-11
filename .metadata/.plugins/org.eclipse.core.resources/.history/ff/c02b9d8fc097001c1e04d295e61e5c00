@@ -1,0 +1,7 @@
+package kr.co.soft.beans;
+
+public interface HelloWorld {
+	
+	public void sayHello();
+		
+	}

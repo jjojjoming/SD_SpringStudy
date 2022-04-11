@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;SpringBaisc/src/main/java/kr.co.soft.beans&apos;&#x0D;&#x0A;- Original project: &apos;Polymophism&apos;&#x0D;&#x0A;- Destination element: &apos;SpringBaisc/src/main/java/kr.co.soft.beans&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Kr.co.polymophism.HelloWorldEn.java&#x0D;&#x0A;     Kr.co.polymophism.HelloWorld.java&#x0D;&#x0A;     Kr.co.polymophism.HelloWorldKo.java" description="Copy compilation units" destination="=SpringBaisc/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;kr.co.soft.beans" element1="/src&lt;Kr.co.polymophism{HelloWorldEn.java" element2="/src&lt;Kr.co.polymophism{HelloWorld.java" element3="/src&lt;Kr.co.polymophism{HelloWorldKo.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1644806653318" units="3" version="1.0"/>
+</session>

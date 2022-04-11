@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd"
+                         default-autowire="byName">
+          
+          <!-- 1. setter 주입을 이용한 객체 생성 -->
+      <bean id='obj1' class="kr.co.soft.beans.TestBean1">
+      		<property name="data1" ref='data_bean1'/>
+      		<property name="data2" ref='data_bean1'/>
+      </bean>
+      
+      <bean id='data_bean1' class="kr.co.soft.beans.DataBean1" scope="prototype"/>
+      
+      <!--2. byName 주입을 이용한 객체 생성 -->
+        <bean id='obj2' class="kr.co.soft.beans.TestBean1" autowire="byName"/>   
+        <bean id='data1' class="kr.co.soft.beans.DataBean1" />
+        <bean id='data2' class="kr.co.soft.beans.DataBean1" />   
+        
+      <!--3. byType 주입을 이용한 객체 생성 -->
+        <bean id='obj3' class="kr.co.soft.beans.TestBean2" autowire="byType"/> 
+       <!--  <bean class="kr.co.soft.beans.DataBean2" />   -->
+       
+       <!--4. 생성자를 통한 주입 -->
+        <!--  <bean class="kr.co.soft.beans.DataBean2" id='data_bean2'/>   -->
+        <bean id='obj4' class="kr.co.soft.beans.TestBean3" > 
+        	<constructor-arg ref="data_bean2" index="0"/>
+        	<constructor-arg ref="data_bean2" index="1"/>
+        </bean>
+        
+         <!--5. 생성자를 통한 자동 주입(객체) -->
+        <bean id='obj5' class="kr.co.soft.beans.TestBean3" autowire="constructor"/> 
+        
+        <!--6. 생성자를 통한 모든 멤버 변수 일반 주입 -->
+         <bean class="kr.co.soft.beans.DataBean2" id='data_bean2'/>  
+        <bean id='obj6' class="kr.co.soft.beans.TestBean3" > 
+        	<constructor-arg value="100" type="int" index="0"/>
+        	<constructor-arg value="soldesk"  index="1"/>
+        	<constructor-arg ref="data_bean2" index="2"/>
+        	<constructor-arg ref="data_bean2" index="3"/>
+        </bean>
+        
+        <!--7. 생성자를 통한 모든 멤버 변수 자동 주입(객체) -->
+        <bean id='obj7' class="kr.co.soft.beans.TestBean3" autowire="constructor"> 
+        	<constructor-arg value="100" type="int" index="0"/>
+        	<constructor-arg value="soldesk"  index="1"/>
+        </bean>
+        <!-- 8. 자동주입을 하지 않으면 위에 선언된 default-autowire="byName"을 참조함 -->
+        <bean id='obj8' class="kr.co.soft.beans.TestBean1" /> 
+        
+        <!-- 9. 위에 선언된 default-autowire="byName"을 참조하지 않음 -->
+        <bean id='obj9' class="kr.co.soft.beans.TestBean1"  autowire="no"/> 
+</beans>
+
+
+

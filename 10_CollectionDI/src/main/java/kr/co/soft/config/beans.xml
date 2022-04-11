@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
+      <bean id='t1' class="kr.co.soft.beans.TestBean">
+       <!-- 1.제네릭이 String Type인 List -->
+       	<property name="list1">
+       		<list>
+       		 	<value>월요일</value>
+       		 	<value>화요일</value>
+       		 	<value>수요일</value>
+       		</list>
+       	</property>
+       	
+       	 <!-- 2.제네릭이 Integer Type인 List -->
+      	<property name="list2">
+         		<list>
+         			<value type="int">100</value>
+         			<value type="int">200</value>
+         			<value type="int">300</value>
+         		</list>
+        </property>
+        
+        <!-- 3.제네릭이 DataBean Type인 List -->
+        <property name="list3">
+         		<list>
+         			<bean class="kr.co.soft.beans.DataBean"/>
+         			<ref bean='data_bean'/>
+         		</list>
+        </property>
+        
+         <!-- 4.제네릭이 String Type인 Set -->
+         <property name="set1">
+         	<set>
+         		<value>목요일</value>
+       		 	<value>금요일</value>
+       		 	<value>토요일</value>
+       		 	<value>토요일</value> <!-- 중복을 허용하지 않음-->
+       		 	<value>토요일</value>
+         	</set>
+         </property>
+         <!-- 5.제네릭이 Integer Type인 Set -->
+         <property name="set2">
+         	<set>
+         			<value type="int">400</value>
+         			<value type="int">500</value>
+         			<value type="int">600</value>
+         			<value type="int">600</value> <!-- 중복을 허용하지 않음-->
+         			<value type="int">600</value>
+         	</set>
+         </property>
+         <!-- 6.제네릭이 DataBean Type인 Set -->
+         <property name="set3">
+         	<set>
+         		<bean class="kr.co.soft.beans.DataBean"/>
+         		<bean class="kr.co.soft.beans.DataBean"/>
+         		<bean class="kr.co.soft.beans.DataBean"/>
+         		<ref bean='data_bean'/> 
+         		<ref bean='data_bean'/> <!-- 중복을 허용하지 않음(id 기준) -->
+         		<ref bean='data_bean'/>
+         		<ref bean='data_bean'/>
+         	</set>
+         </property>
+         
+         
+        <!-- 7. map -->
+        <property name="map1">
+        	<map>
+	        	 <entry key="k1" value='5교시'/>
+	        	 <entry key="k2" value='100' value-type="int"/>
+	        	 <entry key="k3">
+	        	  <bean class="kr.co.soft.beans.DataBean"/>
+	        	 </entry>
+	        	 <entry key="k4" value-ref="data_bean"/>
+	        	 <entry key="k5">
+						<list>
+							<value>출근</value>
+							<value>휴식</value>
+							<value>퇴근</value>
+						</list>        	 
+	        	 </entry>
+        	</map>
+        </property>
+        
+        
+        <!-- 8. Properties -->
+        <property name="prop1">
+        	<props>
+        		<prop key="p1">속성</prop>
+        		<prop key="p2">옵션</prop>
+        		<prop key="p3">필드</prop>
+        	</props>
+        </property>
+        
+ 
+        </bean>
+        <bean id='data_bean' class="kr.co.soft.beans.DataBean" scope="prototype"/>
+ 		
+ 		<!-- 응용 -->
+         <bean id='addr' class="kr.co.soft.beans.CollectionBean">
+       	<property name="addressList">
+       		<list>
+       		 	<value>서울시 강남구 역삼동</value>
+       		 	<value>서울시 은평구 불광동</value>
+       		 	<value>서울시 성동구 행당동</value>
+       		</list>
+       	</property>
+       	</bean>
+                         
+</beans>
+
+
+

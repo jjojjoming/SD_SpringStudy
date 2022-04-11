@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
+        <bean class="kr.co.soft.beans.TestBean1"   id="t1" lazy-init="true" init-method="bean1_init" />      
+       <!--  <bean class="kr.co.soft.beans.TestBean2"   id="t2" lazy-init="true" init-method="bean2_init"/>   -->
+        
+            
+        <bean class="kr.co.soft.beans.TestBean2"   id="t2" lazy-init="true" />  
+        
+        <bean class="kr.co.soft.TestBeanPostProcessor.TestBeanPostProcessor" />   
+        
+                         
+</beans>

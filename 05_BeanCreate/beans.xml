@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
+         <!--  로딩시 자동으로 객체가 생성된다   -->             
+         <bean class='kr.co.soft.beans.TestBean'   />  
+         <!--  로딩시 자동으로 객체가 생성된다 
+               id 속성에 이름을 부여하면 getBean메소드를 통해서 객체의 주소값을 받음
+               생성된 객체는 더 이상 생성되지 않고 singleton으로 여러개 생성됨  --> 
+         <bean class='kr.co.soft.beans.TestBean' id='test1'  />             
+         
+         <!--  lazy-init="true" :로딩시 자동으로 객체가 생성되지 않는다   --> 
+        <!-- <bean class='kr.co.soft.beans.TestBean' lazy-init="true" /> -->  
+        <bean class='kr.co.soft.beans.TestBean' id='test2'  lazy-init="true"/>   
+        
+        <!-- scope="prototype" : xml로딩할때마다 새로운 객체를 생성, 자동으로 lazy-init="true"까지 포함 -->
+        <bean class='kr.co.soft.beans.TestBean' id='test3' scope="prototype" />          
+                         
+</beans>

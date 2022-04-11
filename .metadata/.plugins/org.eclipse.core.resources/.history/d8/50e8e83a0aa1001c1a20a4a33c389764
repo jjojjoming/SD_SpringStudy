@@ -1,0 +1,17 @@
+package kr.project;
+
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+
+public class Project02_B2 {
+	
+	public static void main(String[] args) {
+		String url="https://sum.su.or.kr:8888/bible/today";
+		
+	}
+
+}

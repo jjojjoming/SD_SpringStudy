@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:conText="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd
+                         http://www.springframework.org/schema/context 
+                         http://www.springframework.org/schema/context/spring-context.xsd">
+                         
+                         
+        <!-- type 주입 -->
+          	<bean class='kr.co.soft.beans.TestBean1'/>
+        <!-- Name으로 주입 -->
+        <bean class='kr.co.soft.beans.TestBean2' id='xml2'/>
+        <bean class='kr.co.soft.beans.TestBean2' id='xml3'/>
+        <!-- component -->
+        <conText:component-scan base-package="kr.co.soft.beans2"/>
+        <!-- component의 이름을 여러개 사용 -->
+        <bean class='kr.co.soft.beans2.TestBean4' id='xml100'/>
+        <bean class='kr.co.soft.beans2.TestBean4' id='xml200'/>
+        
+        <!-- component -->
+        <conText:component-scan base-package="kr.co.soft.beans3"/>
+       
+	
+</beans>

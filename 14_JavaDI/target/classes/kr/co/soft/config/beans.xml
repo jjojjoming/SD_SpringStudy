@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
+       <!-- 생성자를 통한 주입 -->
+         <bean id="xml1" class="kr.co.soft.beans.TestBean1" lazy-init="true" >
+         	<constructor-arg value="100" type="int" index="0"/>
+         	<constructor-arg value="괜찮아요"  index="1"/>
+         	<constructor-arg ref='data_bean1' index="2"/>
+         </bean>
+         <bean id='data_bean1' class="kr.co.soft.beans.DataBean1"/>
+         
+        <!--  setter를 통한 주입 -->
+        <bean id='xml2' class='kr.co.soft.beans.TestBean1' lazy-init="true">
+				<property name="data1" value='300'/>
+				<property name="data2" value='String'/>
+				<property name='data3' ref='data_bean1' />
+				<!-- <property name="data3">
+					<bean class="kr.co.soft.beans.DataBean1"/> -->
+		</bean>
+		
+		<!--  byName를 통한 주입 -->
+		 <bean id='xml3' class='kr.co.soft.beans.TestBean2' lazy-init="true" autowire="byName"/>
+		 <bean id='data1' class="kr.co.soft.beans.DataBean2"/>
+		 <bean id='data2' class="kr.co.soft.beans.DataBean2"/>
+		 
+		 <!--  byType를 통한 주입 -->
+		  <bean id='xml4' class='kr.co.soft.beans.TestBean3' lazy-init="true" autowire="byType"/>
+		  <bean class="kr.co.soft.beans.DataBean3"/>
+        
+</beans>
+
+
+

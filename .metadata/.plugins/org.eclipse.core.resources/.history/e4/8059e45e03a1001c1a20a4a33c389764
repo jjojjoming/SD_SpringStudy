@@ -1,0 +1,22 @@
+package kr.project;
+
+
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+public class Project02_A {
+	
+	public static void main(String[] args) {
+		String url="https://sports.news.naver.com/wfootball/index.nhn";
+		Document doc=null; //Jsoup얻어온 HTML 전체문서 (DOM -> Document Object Model)
+		
+		try {
+			
+			doc=Jsoup.connect(url).get();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

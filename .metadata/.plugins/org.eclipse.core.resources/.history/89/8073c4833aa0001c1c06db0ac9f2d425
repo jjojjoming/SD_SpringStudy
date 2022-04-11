@@ -1,0 +1,54 @@
+package kr.co.soft.controller;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import kr.co.soft.beans.PayBean;
+import kr.co.soft.beans.UserBean;
+import kr.co.soft.mapper.PayMapper;
+import kr.co.soft.service.PayService;
+
+@Controller
+public class PayController {
+	
+	@Autowired
+	private PayService payservice;
+	
+	@Autowired
+	private PayMapper payMapper;
+	
+	@Resource(name="loginUserBean")
+	private UserBean loginUserBean;
+	//============================================================================
+	@GetMapping("/mypay")
+	private String mypay() {
+		return "pay/mypay";
+	}
+	
+	@GetMapping("/input_card")
+	public String input_card(HttpSession session, Model model) {
+		session.setAttribute("id", loginUserBean.getUser_name());
+		String userid = loginUserBean.getUser_name();
+		System.out.println(loginUserBean.getUser_name());
+		model.addAttribute("userid", userid);
+		return "pay/input_card";
+	}
+	
+	@GetMapping("/kakaopay")
+	public String kakaopay() {
+		return "pay/kakaopay";
+	}
+	
+	@PostMapping("/input_pro")
+	public String input_pro(PayBean databean) {
+		PayMapper.insert_into(databean);
+		return "pay/input_pro";
+	}
+
+}

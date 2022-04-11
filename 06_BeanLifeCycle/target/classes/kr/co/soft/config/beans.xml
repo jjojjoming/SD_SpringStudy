@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd"
+                         default-init-method="default_init" default-destroy-method="default_destroy">
+          
+        <bean class="kr.co.soft.beans.TestBean1"   id="t1" lazy-init="true" init-method="bean1_init" destroy-method="bean1_destroy"/>      
+        <bean class="kr.co.soft.beans.TestBean2"   id="t2" lazy-init="true" />      
+        <bean class="kr.co.soft.beans.TestBean3"   id="t3" lazy-init="true" init-method="bean3_init" destroy-method="bean3_destroy"/>   
+         <!--  default-init-method, default-destroy-method호출되지만 TestBean4에 메소드가 없음
+          그래도 Error가 아닌 무시로 변경됨 -->
+        <bean class="kr.co.soft.beans.TestBean4"   id="t4" lazy-init="true" /> 
+        
+         <!--  init-method,destroy-method : 구현부가 없은면 Error -->
+        <!-- <bean class="kr.co.soft.beans.TestBean4"   id="t4" lazy-init="true" init-method="bean1_init" destroy-method="bean1_destroy"/>       -->
+                         
+</beans>

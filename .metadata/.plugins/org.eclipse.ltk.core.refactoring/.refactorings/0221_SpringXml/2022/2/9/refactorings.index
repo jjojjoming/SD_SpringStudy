@@ -1,0 +1,4 @@
+1645796161393	Rename package 'kr.co.soft.HomeController'
+1645796175023	Rename package 'kr.co.soft'
+1645796452840	Move 'web.xml' to 'META-INF'
+1645796488559	Move 'web.xml' to 'webapp'

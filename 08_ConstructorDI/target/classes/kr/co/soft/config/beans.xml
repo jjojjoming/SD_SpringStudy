@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
+      <bean id='obj1' class='kr.co.soft.beans.TestBean' lazy-init="true"/> 
+      <!-- 정수 1개 -->
+      <bean id='obj2' class='kr.co.soft.beans.TestBean' lazy-init="true">
+      	<constructor-arg value='100' type='int'/>
+      </bean> 
+      <!-- 실수 1개 -->
+      <bean id='obj3' class='kr.co.soft.beans.TestBean' lazy-init="true">
+      	<constructor-arg value='11.11' type='double'/>
+      </bean> 
+      <!-- 문자 1개 -->
+      <bean id='obj4' class='kr.co.soft.beans.TestBean' lazy-init="true">
+      	<constructor-arg value='Soldesk' type='java.lang.String'/>
+      </bean> 
+      
+      <!-- 정수,실수,문자 -->
+      <bean id='obj5' class='kr.co.soft.beans.TestBean' lazy-init="true">
+      	<constructor-arg value='200' type='int'/>
+      	<constructor-arg value='22.22' type='double'/>
+      	<constructor-arg value='안녕하세요' type='java.lang.String'/>
+      </bean> 
+      
+      <!-- 순서 상관 없음 -->
+      <bean id='obj6' class='kr.co.soft.beans.TestBean' lazy-init="true">
+     	 <constructor-arg value='안녕하세요' type='java.lang.String'/>
+      	<constructor-arg value='300' type='int'/>
+      	<constructor-arg value='33.33' type='double'/>
+      </bean>
+      
+      <!-- 인덱스번호 활용 -->
+      <bean id='obj7' class='kr.co.soft.beans.TestBean' lazy-init="true">
+         <constructor-arg value='33.33' index="1"/>
+     	 <constructor-arg value='안녕하세요' index="2"/>
+      	 <constructor-arg value='300'  index="0"/>
+      </bean>
+      
+      
+       <!-- 객체 매개변수 방법1 -->
+      <bean id='obj8' class='kr.co.soft.beans.TestBean2' lazy-init="true">
+         <constructor-arg >
+           <bean class='kr.co.soft.beans.DataBean'/>
+         </constructor-arg>
+         <constructor-arg >
+           <bean class='kr.co.soft.beans.DataBean'/>
+         </constructor-arg>
+      </bean>
+      
+      <!-- 객체 매개변수 방법2 -->
+      <bean class='kr.co.soft.beans.DataBean' id='data_bean'/>
+       <bean id='obj9' class='kr.co.soft.beans.TestBean2' lazy-init="true" scope="prototype">
+         <constructor-arg ref="data_bean" />
+         <constructor-arg ref="data_bean" />
+      </bean>
+      
+     <!-- TV예제 활용 -->
+      <bean id="tv" class="kr.co.soft.beans.SamSungTV" scope='prototype'>
+      <constructor-arg ref="speaker" />
+      <constructor-arg value="2700000" type='int' /> 
+      </bean>          
+    <bean   id="speaker"  class="kr.co.soft.beans.SonySpeaker"></bean>
+      
+                         
+</beans>
+
+
+
